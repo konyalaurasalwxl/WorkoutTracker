@@ -1,0 +1,14 @@
+import { Component } from '@angular/core';
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { NavbarComponent } from './components/layout/navbar/navbar';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, NavbarComponent], 
+  templateUrl: './app.html',
+  styleUrl: './app.css'
+})
+export class App {
+  title = 'fitlife';
+}
