@@ -6,7 +6,6 @@ A **FitLife** egy modern, Angular-alapú webalkalmazás, amely segít egyensúly
 
 ## Főbb funkciók 
 - **Személyre szabott edzéstervek:** Saját tervek létrehozása, szerkesztése és törlése.
-- **Holisztikus szemlélet:** Edzés utáni hangulat rögzítése (mood tracking).
 - **Mobile-first design:** Teljesen reszponzív felület, amely edzőtermi környezetben, mobilról is kényelmesen használható.
 - **Tiszta architektúra:** Komponens-alapú felépítés, újrahasználható UI elemekkel (Shared components).
 
@@ -16,19 +15,19 @@ A **FitLife** egy modern, Angular-alapú webalkalmazás, amely segít egyensúly
 - **Adatkezelés:** RxJS alapú reaktív DataService
 - **Dokumentáció:** AI-alapú fejlesztési napló (AI Prompt Log)
 
-##  Mappaszerkezet
-A projekt a tiszta kód elveit követi:
-- `/src/app/pages`: Az alkalmazás fő nézetei (Dashboard, Plans stb.)
-- `/src/app/components/shared`: Újrahasználható UI komponensek (Gombok, kártyák)
-- `/src/app/models`: TypeScript interfészek az adatmodellhez
-- `/src/app/services`: Üzleti logika és adatkezelés
+## Mappaszerkezet
+
+- `src/app/`: Itt találhatók a főbb nézetek és oldalak 
+- `src/app/core/`: Az alkalmazás magvát képező rendszerszintű logika, mint az autentikációs védelmek (`guards/`) és a hálózati kéréseket kezelő `auth.interceptor.ts`.
+- `src/app/shared/`: Újrahasználható elemek és közös logika:
+  - `components/`: Közös UI elemek (pl. `navbar/`).
+  - `models/`: TypeScript interfészek és adatmodellek.
+  - `services/`: Az üzleti logikát és adatkezelést végző szolgáltatások.
 
 ##  Telepítés és Firebase Konfiguráció
 1. **Klónozd a tárolót:** `git clone [repo-url]`
 2. **Telepítsd a függőségeket:** `npm install --legacy-peer-deps`
-3. **Környezeti változók beállítása:** Hozd létre az `src/environments/environment.ts` fájlt a Firebase konzolból kapott `firebaseConfig` adatokkal.
-4. **Adatbázis inicializálás:** Az alkalmazás első futtatásakor automatikus migráció történik.
-Az alkalmazás első futtatásakor a DataService ellenőrzi a Firestore adatbázist. Amennyiben az üres, automatikusan feltölti az alapértelmezett edzéstervekkel (migráció).
+
 
 ##   Build és Deploy (Publikálás)
 A projekt élesítése (deploy) a következő folyamatot követi:
@@ -43,4 +42,4 @@ npx firebase deploy --only hosting
 Az alkalmazás minőségbiztosítását Unit és E2E tesztek segítik:
 **Unit tesztek:** Az üzleti logika és a validációk ellenőrzésére.
 ng test
-**E2E tesztek:** A felhasználói folyamatok (pl. bejelentkezés) szimulálására (Cypress/Playwright fájlok a repóban találhatók).
+
